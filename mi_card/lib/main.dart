@@ -6,7 +6,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  List<IconData> icon = [Icons.phone, Icons.mail];
+  List<IconData> icon = [
+    Icons.phone,
+    Icons.mail,
+  ];
 
   Widget cardView({required String titleName, required int index}) {
     return Card(
@@ -75,12 +78,12 @@ class MyApp extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    height: 2,
-                    width: 200,
-                    color: Colors.teal.shade900,
-                  ),
-                  SizedBox(
-                    height: 10,
+                    height: 20,
+                    width: 150,
+                    child: Divider(
+                      thickness: 1,
+                      color: Colors.teal.shade100,
+                    ),
                   ),
                   cardView(titleName: '+8801705000023', index: 0),
                   SizedBox(

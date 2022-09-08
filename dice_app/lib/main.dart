@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(
+    MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
@@ -19,33 +14,37 @@ class MyApp extends StatelessWidget {
         ),
         body: DiceApp(),
       ),
-    );
-  }
+    ),
+  );
 }
 
 class DiceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var diceNum = 1;
+
     return Container(
       child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: () {  },
-                  child: Image.asset("image/dice1.png"),
-                ),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  // diceNum = 3;
+                  
+                },
+                child: Image.asset("image/dice$diceNum.png"),
               ),
-              SizedBox(
-                width: 20,
-              ),
-              Expanded(
+            ),
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  print('Right button got pressed.');
+                },
                 child: Image.asset("image/dice2.png"),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

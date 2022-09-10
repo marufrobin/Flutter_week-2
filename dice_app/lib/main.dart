@@ -18,11 +18,16 @@ void main() {
   );
 }
 
-class DiceApp extends StatelessWidget {
+class DiceApp extends StatefulWidget {
+  @override
+  State<DiceApp> createState() => _DiceAppState();
+}
+
+class _DiceAppState extends State<DiceApp> {
+  int diceNum = 1;
+
   @override
   Widget build(BuildContext context) {
-    var diceNum = 1;
-
     return Container(
       child: Center(
         child: Row(
@@ -30,8 +35,10 @@ class DiceApp extends StatelessWidget {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  // diceNum = 3;
-                  
+                  setState(() {
+                    diceNum = 6;
+                    print('dice Number: $diceNum');
+                  });
                 },
                 child: Image.asset("image/dice$diceNum.png"),
               ),
@@ -39,9 +46,12 @@ class DiceApp extends StatelessWidget {
             Expanded(
               child: TextButton(
                 onPressed: () {
-                  print('Right button got pressed.');
+                  setState(() {
+                    diceNum = 3;
+                    print('Right dice number: $diceNum');
+                  });
                 },
-                child: Image.asset("image/dice2.png"),
+                child: Image.asset("image/dice$diceNum.png"),
               ),
             ),
           ],
